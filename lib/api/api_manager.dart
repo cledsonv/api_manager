@@ -5,7 +5,6 @@ import 'package:api_manager/api/api_response.dart';
 import 'package:api_manager/api/handler/api_connection_error.dart';
 import 'package:api_manager/api/handler/api_error.dart';
 import 'package:api_manager/api/handler/api_internal_server_error.dart';
-import 'package:api_manager/api/response_request_entity.dart';
 import 'package:api_manager/api/response_request_mapper.dart';
 import 'package:dio/dio.dart';
 import 'package:api_manager/api/error_message_parser.dart';
@@ -61,7 +60,7 @@ class ApiManager {
     _addInterceptors();
   }
 
-  Future<ResponseRequestEntity> _handleRequest({
+  Future<dynamic> _handleRequest({
     required Future<Response> Function() request,
     required String method,
     required String url,
@@ -115,7 +114,7 @@ class ApiManager {
     }
   }
 
-  Future<ResponseRequestEntity> put(
+  Future<dynamic> put(
     String url, {
     required Map<String, dynamic> body,
     required Map<String, dynamic> headers,
@@ -139,7 +138,7 @@ class ApiManager {
     );
   }
 
-  Future<ResponseRequestEntity> delete(
+  Future<dynamic> delete(
     String url, {
     required Map<String, dynamic> headers,
   }) async {
@@ -151,7 +150,7 @@ class ApiManager {
     );
   }
 
-  Future<ResponseRequestEntity> get(
+  Future<dynamic> get(
     String url, {
     required Map<String, dynamic> headers,
   }) async {
@@ -163,7 +162,7 @@ class ApiManager {
     );
   }
 
-  Future<ResponseRequestEntity> post(
+  Future<dynamic> post(
     String url, {
     required dynamic body,
     required Map<String, dynamic> headers,
@@ -187,7 +186,7 @@ class ApiManager {
     );
   }
 
-  Future<ResponseRequestEntity> patch(
+  Future<dynamic> patch(
     String url, {
     required dynamic body,
     required Map<String, dynamic> headers,
